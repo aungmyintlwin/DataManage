@@ -8,11 +8,11 @@ import {
   ViewStyle,
 } from "react-native"
 import type { ThemedStyle, ThemedStyleArray } from "@/theme"
-import { $styles } from "../theme"
+import { $styles, colors } from "../theme"
 import { Text, TextProps } from "./Text"
 import { useAppTheme } from "@/utils/useAppTheme"
 
-type Presets = "default" | "filled" | "reversed"
+type Presets = "default" | "filled" | "reversed" | "primary" | "textBtn"
 
 export interface ButtonAccessoryProps {
   style: StyleProp<any>
@@ -225,22 +225,41 @@ const $viewPresets: Record<Presets, ThemedStyleArray<ViewStyle>> = {
     $baseViewStyle,
     ({ colors }) => ({ backgroundColor: colors.palette.neutral800 }),
   ],
+  primary: [
+    $styles.row,
+    $baseViewStyle,
+    ({ colors }) => ({ backgroundColor: colors.palette.primaryBtnColor }),
+  ],
+  textBtn: [
+    $styles.row,
+    $baseViewStyle,
+    () => ({
+      borderWidth: 0,
+      backgroundColor: colors.transparent,
+    }),
+  ],
 }
 
 const $textPresets: Record<Presets, ThemedStyleArray<TextStyle>> = {
   default: [$baseTextStyle],
   filled: [$baseTextStyle],
   reversed: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.neutral100 })],
+  primary: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.neutral100 })],
+  textBtn: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.primaryBtnColor })],
 }
 
 const $pressedViewPresets: Record<Presets, ThemedStyle<ViewStyle>> = {
   default: ({ colors }) => ({ backgroundColor: colors.palette.neutral200 }),
   filled: ({ colors }) => ({ backgroundColor: colors.palette.neutral400 }),
   reversed: ({ colors }) => ({ backgroundColor: colors.palette.neutral700 }),
+  primary: ({ colors }) => ({ backgroundColor: colors.palette.neutral700 }),
+  textBtn: () => ({ backgroundColor: colors.transparent, borderWidth: 0 }),
 }
 
 const $pressedTextPresets: Record<Presets, ThemedStyle<TextStyle>> = {
   default: () => ({ opacity: 0.9 }),
   filled: () => ({ opacity: 0.9 }),
   reversed: () => ({ opacity: 0.9 }),
+  primary: () => ({ opacity: 0.9 }),
+  textBtn: () => ({ opacity: 0.9 }),
 }

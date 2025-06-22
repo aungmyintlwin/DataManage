@@ -1,3 +1,6 @@
 export * from "./WelcomeScreen"
+export * from "./HealthConcern/HealthConcernScreen"
+export * from "./DietScreen/DietScreen"
+export * from "./AllergiesScreen/AllergiesScreen"
+export * from "./GetMyVitamin/GetMyVitaminScreen"
 export * from "./ErrorScreen/ErrorBoundary"
-// export other screens here

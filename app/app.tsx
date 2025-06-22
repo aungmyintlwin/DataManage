@@ -21,6 +21,7 @@ import { initI18n } from "./i18n"
 import { useFonts } from "expo-font"
 import { useEffect, useState } from "react"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
+import { GestureHandlerRootView } from "react-native-gesture-handler"
 import * as Linking from "expo-linking"
 import * as SplashScreen from "expo-splash-screen"
 import { AppNavigator, useNavigationPersistence } from "./navigators"
@@ -28,6 +29,8 @@ import * as storage from "./utils/storage"
 import { customFontsToLoad } from "./theme"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { loadDateFnsLocale } from "./utils/formatDate"
+import { store } from "./redux/store"
+import { Provider } from "react-redux"
 
 export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
 
@@ -98,11 +101,15 @@ export function App() {
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <KeyboardProvider>
-        <AppNavigator
-          linking={linking}
-          initialState={initialNavigationState}
-          onStateChange={onNavigationStateChange}
-        />
+        <GestureHandlerRootView>
+          <Provider store={store}>
+            <AppNavigator
+              linking={linking}
+              initialState={initialNavigationState}
+              onStateChange={onNavigationStateChange}
+            />
+          </Provider>
+        </GestureHandlerRootView>
       </KeyboardProvider>
     </SafeAreaProvider>
   )

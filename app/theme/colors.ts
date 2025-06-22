@@ -33,6 +33,9 @@ const palette = {
 
   overlay20: "rgba(25, 16, 21, 0.2)",
   overlay50: "rgba(25, 16, 21, 0.5)",
+
+  customBackground: "#d3f3e6",
+  primaryBtnColor: "#ff614e",
 } as const
 
 export const colors = {
@@ -57,7 +60,7 @@ export const colors = {
   /**
    * The default color of the screen background.
    */
-  background: palette.neutral200,
+  background: palette.customBackground,
   /**
    * The default border color.
    */

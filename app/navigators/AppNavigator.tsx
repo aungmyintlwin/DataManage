@@ -27,8 +27,10 @@ import { ComponentProps } from "react"
  */
 export type AppStackParamList = {
   Welcome: undefined
-  // 🔥 Your screens go here
-  // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
+  HealthConcern: undefined
+  DietScreen: undefined
+  AllergiesScreen: undefined
+  GetMyVitaminScreen: undefined
 }
 
 /**
@@ -61,8 +63,10 @@ const AppStack = () => {
       }}
     >
       <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} />
-      {/** 🔥 Your screens go here */}
-      {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
+      <Stack.Screen name="HealthConcern" component={Screens.HealthConcernScreen} />
+      <Stack.Screen name="DietScreen" component={Screens.DietScreen} />
+      <Stack.Screen name="AllergiesScreen" component={Screens.AllergiesScreen} />
+      <Stack.Screen name="GetMyVitaminScreen" component={Screens.GetMyVitaminScreen} />
     </Stack.Navigator>
   )
 }

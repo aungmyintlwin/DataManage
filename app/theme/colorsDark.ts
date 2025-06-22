@@ -33,6 +33,9 @@ const palette = {
 
   overlay20: "rgba(25, 16, 21, 0.2)",
   overlay50: "rgba(25, 16, 21, 0.5)",
+
+  customBackground: "#121212",
+  primaryBtnColor: "#ff614e",
 } as const
 
 export const colors = {
@@ -40,7 +43,8 @@ export const colors = {
   transparent: "rgba(0, 0, 0, 0)",
   text: palette.neutral800,
   textDim: palette.neutral600,
-  background: palette.neutral200,
+  background: palette.customBackground,
+  // background: palette.neutral200,
   border: palette.neutral400,
   tint: palette.primary500,
   tintInactive: palette.neutral300,
